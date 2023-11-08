@@ -45,10 +45,9 @@ document.querySelector("#skip").addEventListener("click", function() {
 
 document.querySelector("#slider").addEventListener("input", function() {
 	var currVol = document.querySelector("#slider").value;
-	video.volume = currVol;
+	video.volume = currVol / 100;
 	document.querySelector("#volume").textContent = Math.round(video.volume * 100) + "%";
-	video.load();
-	console.log("gheilhas");
+	//console.log(currVol);
 });
 
 document.querySelector("#mute").addEventListener("click", function() {
@@ -56,8 +55,21 @@ document.querySelector("#mute").addEventListener("click", function() {
 	if (video.muted) {
 		document.querySelector("#mute").innerHTML = "Unmute";
 	}else {
-		document.querySelector("#mute").innerHTML = "Unmute";
+		document.querySelector("#mute").innerHTML = "Mute";
 	}
-	document.querySelector("#volume").textContent = 0 + "%";
-	//console.log("gheilhas");
+	
+});
+
+document.querySelector("#vintage").addEventListener("click", function() {
+	//const element = document.querySelector('.video'); // Replace #myElement with the appropriate selector
+
+// Remove a class from the selected element
+	video.classList.add('oldSchool'); 
+});
+
+document.querySelector("#orig").addEventListener("click", function() {
+	 // Replace #myElement with the appropriate selector
+
+// Remove a class from the selected element
+	video.classList.remove('oldSchool'); 
 });
